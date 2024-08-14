@@ -1,7 +1,5 @@
 package br.com.doug.library.service;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import br.com.doug.library.entity.User;
@@ -15,8 +13,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public Optional<User> get(Long id) {
-        return userRepository.findById(id);
+    public User get(Long id) {
+        var user = userRepository.findById(id);
+
+        return user.get();
     }
 
     public User create(User user) {
