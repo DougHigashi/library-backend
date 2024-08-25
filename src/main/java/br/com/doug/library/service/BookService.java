@@ -1,7 +1,5 @@
 package br.com.doug.library.service;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import br.com.doug.library.entity.Book;
@@ -15,8 +13,10 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public Optional<Book> get(Long id) {
-        return bookRepository.findById(id);
+    public Book get(Long id) {
+        var book = bookRepository.findById(id);
+
+        return book.get();
     }
 
     public Book create(Book book) {

@@ -1,7 +1,5 @@
 package br.com.doug.library.service;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import br.com.doug.library.entity.Borrow;
@@ -15,8 +13,10 @@ public class BorrowService {
         this.borrowRepository = borrowRepository;
     }
 
-    public Optional<Borrow> get(Long id) {
-        return borrowRepository.findById(id);
+    public Borrow get(Long id) {
+        var borrow = borrowRepository.findById(id);
+
+        return borrow.get();
     }
 
     public Borrow create(Borrow borrow) {

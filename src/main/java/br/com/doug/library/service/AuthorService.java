@@ -1,7 +1,5 @@
 package br.com.doug.library.service;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import br.com.doug.library.entity.Author;
@@ -15,8 +13,10 @@ public class AuthorService {
         this.authorRepository = authorRepository;
     }
 
-    public Optional<Author> get(Long id) {
-        return authorRepository.findById(id);
+    public Author get(Long id) {
+        var author = authorRepository.findById(id);
+
+        return author.get();
     }
 
     public Author create(Author author) {

@@ -1,7 +1,5 @@
 package br.com.doug.library.service;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Service;
 
 import br.com.doug.library.entity.Return;
@@ -19,8 +17,10 @@ public class ReturnService {
         return returnRepository.save(returnEntity);
     }
 
-    public Optional<Return> get(Long id) {
-        return returnRepository.findById(id);
+    public Return get(Long id) {
+        var bookReturn = returnRepository.findById(id);
+
+        return bookReturn.get();
     }
 
     public Return update(Return returnEntity) {
