@@ -13,7 +13,21 @@ public class UserTypeService {
         this.userTypeRepository = userTypeRepository;
     }
 
-    public void create(UserType userType) {
-        userTypeRepository.save(userType);
+    public UserType get(Long id) {
+        var userType = userTypeRepository.findById(id);
+
+        return userType.get();
+    }
+
+    public UserType create(UserType userType) {
+        return userTypeRepository.save(userType);
+    }
+
+    public UserType update(UserType userType) {
+        return userTypeRepository.save(userType);
+    }
+
+    public void delete(Long id) {
+        userTypeRepository.deleteById(id);
     }
 }
