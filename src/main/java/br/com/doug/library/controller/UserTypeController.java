@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.doug.library.entity.UserType;
 import br.com.doug.library.service.UserTypeService;
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PutMapping;
 
 @RestController
@@ -24,7 +26,7 @@ public class UserTypeController {
 
     // POST
     @PostMapping
-    public UserType create(@RequestBody UserType userType) {
+    public UserType create(@RequestBody @Valid UserType userType) {
         return userTypeService.create(userType);
     }
 

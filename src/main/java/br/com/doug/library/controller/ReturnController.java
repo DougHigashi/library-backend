@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.doug.library.entity.Return;
 import br.com.doug.library.service.ReturnService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/returns")
@@ -23,7 +24,7 @@ public class ReturnController {
 
     // POST
     @PostMapping
-    public Return create(@RequestBody Return bookReturn) {
+    public Return create(@RequestBody @Valid Return bookReturn) {
         return returnService.create(bookReturn);
     }
 

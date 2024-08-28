@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.doug.library.entity.Book;
 import br.com.doug.library.service.BookService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/books")
@@ -23,7 +24,7 @@ public class BookController {
 
     // POST
     @PostMapping
-    public Book create(@RequestBody Book book) {
+    public Book create(@RequestBody @Valid Book book) {
         return bookService.create(book);
     }
 

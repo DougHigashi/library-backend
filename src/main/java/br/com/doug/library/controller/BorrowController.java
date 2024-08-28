@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.doug.library.entity.Borrow;
 import br.com.doug.library.service.BorrowService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/borrows")
@@ -23,7 +24,7 @@ public class BorrowController {
 
     // POST
     @PostMapping
-    public Borrow create(@RequestBody Borrow borrow) {
+    public Borrow create(@RequestBody @Valid Borrow borrow) {
         return borrowService.create(borrow);
     }
 

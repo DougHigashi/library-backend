@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.doug.library.entity.Author;
 import br.com.doug.library.service.AuthorService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/authors")
@@ -23,7 +24,7 @@ public class AuthorController {
 
     // POST
     @PostMapping
-    public Author create(@RequestBody Author author) {
+    public Author create(@RequestBody @Valid Author author) {
         return authorService.create(author);
     }
 
